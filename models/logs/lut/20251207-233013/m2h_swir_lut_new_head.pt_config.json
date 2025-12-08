@@ -1,0 +1,46 @@
+{
+  "framework": "pytorch",
+  "run_id": "20251207-233013",
+  "model_file": "D:\\JIE\\CODE\\GITHUB\\project\\models\\m2h_swir_lut_new_head.pt",
+  "input_shape": [
+    10
+  ],
+  "output_dim": 2101,
+  "alpha": 0.22,
+  "beta": 1.3,
+  "batch_size": 256,
+  "epochs": 200,
+  "patience": 30,
+  "use_multiscale_conv": true,
+  "use_se": true,
+  "use_residual": true,
+  "use_transformer": "true",
+  "transformer": {
+    "num_heads": 4,
+    "d_model": 256,
+    "ff_dim": 512,
+    "num_layers": 2
+  },
+  "data": {
+    "LUT_DIR": "D:\\JIE\\CODE\\GITHUB\\project\\data\\lut",
+    "MODEL_DIR": "D:\\JIE\\CODE\\GITHUB\\project\\models",
+    "X_ms_shape": [
+      100000,
+      10
+    ],
+    "Y_hs_shape": [
+      100000,
+      2101
+    ]
+  },
+  "wavelength_axis": {
+    "WL_MIN": 400,
+    "WL_STEP": 1,
+    "num_wavelengths": 2101
+  },
+  "metrics_file": "D:\\JIE\\CODE\\GITHUB\\project\\models\\logs\\lut\\20251207-233013\\m2h_swir_lut_new_head.pt_lut_metrics.json",
+  "summary_file": "D:\\JIE\\CODE\\GITHUB\\project\\models\\logs\\lut\\20251207-233013\\m2h_swir_lut_new_head.pt_summary.txt",
+  "train_log_csv": "D:\\JIE\\CODE\\GITHUB\\project\\models\\logs\\lut\\20251207-233013\\train_log.csv",
+  "tensorboard_log_dir": "D:\\JIE\\CODE\\GITHUB\\project\\models\\logs\\lut\\20251207-233013",
+  "note": "Model saved as torch.state_dict(). Rebuild architecture with same config before loading."
+}

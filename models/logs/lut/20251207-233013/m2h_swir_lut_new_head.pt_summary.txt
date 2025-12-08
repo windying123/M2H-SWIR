@@ -1,0 +1,36 @@
+M2H_SWIR_Model(
+  (branch1): Conv1d(1, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+  (branch2): Conv1d(1, 64, kernel_size=(5,), stride=(1,), padding=(2,))
+  (branch3): Conv1d(1, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+  (se): SqueezeExcite1D(
+    (global_pool): AdaptiveAvgPool1d(output_size=1)
+    (fc1): Linear(in_features=192, out_features=48, bias=True)
+    (fc2): Linear(in_features=48, out_features=192, bias=True)
+  )
+  (res_block1): ResidualBlock1D(
+    (conv1): Conv1d(192, 192, kernel_size=(3,), stride=(1,), padding=(1,))
+    (conv2): Conv1d(192, 192, kernel_size=(3,), stride=(1,), padding=(1,))
+  )
+  (res_block2): ResidualBlock1D(
+    (conv1): Conv1d(192, 192, kernel_size=(3,), stride=(1,), padding=(1,))
+    (conv2): Conv1d(192, 192, kernel_size=(3,), stride=(1,), padding=(1,))
+  )
+  (to_dmodel): Conv1d(192, 256, kernel_size=(1,), stride=(1,))
+  (transformer_layers): ModuleList(
+    (0-1): 2 x TransformerBlock1D(
+      (mha): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+      )
+      (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+      (ffn): Sequential(
+        (0): Linear(in_features=256, out_features=512, bias=True)
+        (1): ReLU(inplace=True)
+        (2): Linear(in_features=512, out_features=256, bias=True)
+      )
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+  )
+  (conv_local): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+  (conv_out): Conv1d(256, 1, kernel_size=(1,), stride=(1,))
+)

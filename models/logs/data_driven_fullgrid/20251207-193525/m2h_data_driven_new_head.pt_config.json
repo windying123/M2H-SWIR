@@ -1,0 +1,48 @@
+{
+  "framework": "pytorch",
+  "run_id": "20251207-193525",
+  "model_file": "D:\\JIE\\CODE\\GITHUB\\project\\models\\m2h_data_driven_new_head.pt",
+  "model_type": "m2h",
+  "input_shape": [
+    10
+  ],
+  "output_dim": 2101,
+  "alpha": 0.2,
+  "beta": 2.0,
+  "batch_size": 256,
+  "epochs": 200,
+  "patience": 20,
+  "data": {
+    "REAL_DIR": "D:\\JIE\\CODE\\GITHUB\\project\\data\\real",
+    "X_real_shape": [
+      300,
+      10
+    ],
+    "Y_compact_shape": [
+      300,
+      1670
+    ],
+    "Y_full_shape": [
+      300,
+      2101
+    ],
+    "n_valid_bands": 1670,
+    "used_band_indices": [
+      305,
+      317,
+      340,
+      1110,
+      1700,
+      1770,
+      1800,
+      1850,
+      440,
+      470,
+      490,
+      800,
+      1245,
+      1315
+    ]
+  },
+  "note": "Pure data-driven full-grid model (M2H or SimpleCNN) with masked loss on ASD valid bands."
+}
