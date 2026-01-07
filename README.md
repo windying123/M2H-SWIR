@@ -1,3 +1,5 @@
+The validation data for our experiment is our own measured data, located in the data folder. The training data needs to be generated using (1) enerate LUT. The specific range of the LUT is based on the relevant parameters of wheat in our experiment and other literature. You can directly download all the raw data (excluding code) from 10.5281/zenodo.18173915.
+
 # 1. LUT-Based Pretraining
 ## 1) Generate LUT
 python src/prosail-sim/generate_lut.py
