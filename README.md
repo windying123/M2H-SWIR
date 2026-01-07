@@ -1,7 +1,40 @@
-## The validation data for our experiment is our own measured data, located in the data/. The training data needs to be generated using (1) enerate LUT. The specific range of the LUT is based on the relevant parameters of wheat in our experiment and other literature. You can directly download all the raw data (excluding code) from 10.5281/zenodo.18173915.
+# Project Structure
+
+This repository contains the full implementation of the M2H-SWIR model, including LUT-based simulation, model training, fine-tuning, and evaluation.
 
 <img width="836" height="607" alt="LUT-M2H-SWIR" src="https://github.com/user-attachments/assets/637488c5-5f28-4b8f-8c24-287b686f9af8" />
 
+LUT-M2H-SWIR
+
+    data/                    # Data directory (Zenodo)
+       real/                  # Measured UAV and ASD data
+       lut/                   # LUT-generated training data
+       ancillary/             # Soil spectral data
+       sensor/                # UAV sensor spectral response functions
+
+    src/
+       prosail-sim/           # LUT generation
+         generate_lut.py
+
+       train/                 # Training scripts
+         train_lut_standard.py
+         finetune_on_real.py
+         train_data_driven.py
+
+      eval/                  # Evaluation scripts
+        evaluate_reconstruction.py
+        eval_on_real.py
+
+    models/                  # Model weights
+      README.md
+      requirements.txt
+
+
+All raw data (excluding code) are publicly available on Zenodo (DOI: 10.5281/zenodo.18173915).
+
+# Model Overview：M2H-SWIR Model
+
+M2H–SWIR is a hybrid physical–deep learning framework that reconstructs full-spectrum hyperspectral reflectance (400–2500 nm) from multispectral UAV data (400–900 nm) by combining PROSAIL-PRO simulations with CNN-based learning. Model outputs are validated using ground-based ASD canopy reflectance measurements.
 
 ## 1. LUT-Based Pretraining：Generate training data and pre-trained model
 ### 1) Generate LUT
