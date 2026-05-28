@@ -59,4 +59,9 @@ python src/eval/evaluate_reconstruction.py --model models/m2h_swir_lut_new_head.
 ### On real UAV–ASD data
 python src/eval/eval_on_real.py --model models/m2h_swir_finetuned_new_head.pt
 
+### Citation
+If you use M2H-SWIR in your research, please cite:
+Wang, J., Belwalkar, A., Meyer, S.T., Li, F., Herrmann, I., & Yu, K. (2026). UAV multispectral to hyperspectral reconstruction based on deep learning and radiative transfer models for crop nitrogen monitoring. International Journal of Applied Earth Observation and Geoinformation, 150, 105364.
+DOI: https://doi.org/10.1016/j.jag.2026.105364
+
 
